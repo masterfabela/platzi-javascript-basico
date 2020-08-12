@@ -9,4 +9,8 @@ console.log(miNombre);
 
 nombre();
 
-console.log(apellido);
+hola('david');
+
+function hola(miNombre) {
+  console.log(miNombre);
+}

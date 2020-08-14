@@ -2,6 +2,7 @@ var papel = 'papel';
 var pedra = 'pedra';
 var tixeira = 'tixeira';
 
+generarElementoAleatorio();
 console.log(resutadoXogo(tixeira, pedra));
 
 function resutadoXogo(valorHumano, valorMaquina) {
@@ -12,6 +13,14 @@ function resutadoXogo(valorHumano, valorMaquina) {
   } else {
     return 'gana maquina';
   }
+}
+
+function generarElementoAleatorio() {
+  console.log(Math.floor(Math.random() * (3 + 1)));
+}
+
+function escollerItemDeArray(array) {
+  return array[Math.floor(Math.random() * array.length)];
 }
 
 function elementoGanador(elemento1, elemento2) {
@@ -35,3 +44,5 @@ function elementoGanador(elemento1, elemento2) {
     }
   }
 }
+
+console.log(escollerItemDeArray([pedra, papel, tixeira]));

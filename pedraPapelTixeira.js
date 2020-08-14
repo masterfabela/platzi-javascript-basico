@@ -2,47 +2,42 @@ var papel = 'papel';
 var pedra = 'pedra';
 var tixeira = 'tixeira';
 
-generarElementoAleatorio();
-console.log(resutadoXogo(tixeira, pedra));
+var valorCpu = escollerItemDeArray([pedra, papel, tixeira]);
+console.log(resutadoXogo(tixeira, valorCpu));
 
 function resutadoXogo(valorHumano, valorMaquina) {
   if (valorHumano == valorMaquina) {
     return 'empate';
-  } else if (elementoGanador(valorHumano, valorMaquina) == valorHumano) {
+  } else if (ganaUsuario(valorHumano, valorMaquina)) {
     return 'Gana humano';
   } else {
     return 'gana maquina';
   }
 }
 
-function generarElementoAleatorio() {
-  console.log(Math.floor(Math.random() * (3 + 1)));
-}
-
 function escollerItemDeArray(array) {
-  return array[Math.floor(Math.random() * array.length)];
+  var itemSelecionado = array[Math.floor(Math.random() * array.length)];
+  console.log(itemSelecionado);
+  return itemSelecionado;
 }
 
-function elementoGanador(elemento1, elemento2) {
-  if (elemento1 == papel) {
-    if (elemento2 == tixeira) {
-      return elemento2;
-    } else if (elemento2 == pedra) {
-      return elemento1;
-    }
-  } else if (elemento1 == tixeira) {
-    if (elemento2 == pedra) {
-      return elemento2;
-    } else if (elemento2 == papel) {
-      return elemento1;
-    }
-  } else if (elemento1 == pedra) {
-    if (elemento2 == tixeira) {
-      return elemento1;
-    } else if (elemento2 == papel) {
-      return elemento2;
-    }
+function ganaUsuario(usuario, cpu) {
+  switch (usuario) {
+    case papel:
+      if (cpu == pedra) {
+        return true;
+      }
+      break;
+    case pedra:
+      if (cpu == tixeira) {
+        return true;
+      }
+      break;
+    case tixeira:
+      if (cpu == papel) {
+        return true;
+      }
+      break;
   }
+  return false;
 }
-
-console.log(escollerItemDeArray([pedra, papel, tixeira]));

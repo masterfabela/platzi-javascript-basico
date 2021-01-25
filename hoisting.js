@@ -4,5 +4,5 @@ var miNombre = 'Diego';
 hey();
 
 function hey() {
-  console.log('Hola ' + miNombre);
+	console.log('Hola ' + miNombre);
 }
